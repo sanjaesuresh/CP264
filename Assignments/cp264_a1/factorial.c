@@ -30,5 +30,5 @@ int main(){
     } else printf("%d:invalid\n", n);
     
   return 0;
-} return factorial;
+} 
 }
