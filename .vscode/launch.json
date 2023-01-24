@@ -1,18 +1,21 @@
 {
-    // Use IntelliSense to learn about possible attributes.
-    // Hover to view descriptions of existing attributes.
-    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
-    "version": "0.2.0",
-    "configurations": [
-
-    
-        {
-            "type": "lldb",
-            "request": "launch",
-            "name": "Debug",
-            "program": "${workspaceFolder}/build/${fileBasenameNoExtension}.exe",
-            "args": [],
-            "cwd": "${workspaceFolder}"
-        }
-    ]
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "lldb",
+      "request": "launch",
+      "name": "Debug",
+      "program": "${workspaceFolder}/build/${fileBasenameNoExtension}.exe",
+      "args": [],
+      "cwd": "${workspaceFolder}"
+    },
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "lldb",
+      "request": "launch",
+      "args": [],
+      "cwd": "/Users/sanjae/CP264/CP264/Labs/sure3530_lab02_t01/src",
+      "program": "/Users/sanjae/CP264/CP264/Labs/sure3530_lab02_t01/src/build/Debug/outDebug"
+    }
+  ]
 }
