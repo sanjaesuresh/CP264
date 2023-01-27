@@ -14,8 +14,8 @@
       "type": "lldb",
       "request": "launch",
       "args": [],
-      "cwd": "/Users/sanjae/CP264/CP264/Labs/sure3530_lab02_t01/src",
-      "program": "/Users/sanjae/CP264/CP264/Labs/sure3530_lab02_t01/src/build/Debug/outDebug"
+      "cwd": "/Users/sanjae/CP264/CP264-1/Assignments/a2/src",
+      "program": "/Users/sanjae/CP264/CP264-1/Assignments/a2/src/build/Debug/outDebug"
     }
   ]
 }
