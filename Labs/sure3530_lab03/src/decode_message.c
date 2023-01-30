@@ -52,16 +52,16 @@ form the complete decoded message. The message is then output.
 #define MAX_NUM_COLS     6           // Max. number of columns.
 #define MAX_KEY_PAIRS   15           // Max. number of [row, col] key pairs.
 
-<*** your GLOBAL CONSTANTS definitions here ***>
+//<*** your GLOBAL CONSTANTS definitions here ***>
 
 int main(int argc, char *argv[]) {
 //==============================
     setbuf(stdout, NULL);            // Turns standard output buffering off
 
-    <*** Your Variable Declarations here ***>
+   //Your Variable Declarations here ***>
 
                                      // "scrambled" - 2D Character Array storing adhoc characters.
-    char scrambled[MAX_NUM_ROWS][MAX_NUM_COLS] = {{"zd_k83"},
+   char scrambled[MAX_NUM_ROWS][MAX_NUM_COLS] = {{"zd_k83"},
                                                   {"Ju9_Tn"},
                                                   {"bgm7If"},
                                                   {"ax0DLU"},
@@ -70,7 +70,7 @@ int main(int argc, char *argv[]) {
                                      //         Note: The range of the row, col pair values stored in the "key"
                                      //               array is as shown below:
                                      //               [row, col] ==> [1...5, 1...6], not [0...4, 0...5]!!!
-    int  key[MAX_KEY_PAIRS][2] = {{3,5},
+   int key[MAX_KEY_PAIRS][2] = {{3,5},
                                   {5,2},
                                   {4,1},
                                   {3,3},  // Fill these spaces with right numbers
@@ -87,7 +87,20 @@ int main(int argc, char *argv[]) {
                                   {1,6}                    
 			         };
 
-    <*** Your Program Code here ***>
+    //<*** Your Program Code here ***>
+   char *string = (char*) calloc(1, sizeof(char)); 
 
-    return 0;
+   for(int i= 0; i < MAX_KEY_PAIRS; i++){
+      char x[2];
+      x[0] = scrambled[key[i][0]-1][key[i][1]-1];
+
+      if (x[0] == '_') x[0] = ' ';
+      
+      x[1]= '\0';
+      strcat(string,x); 
+   }
+   
+   printf("Decoded Message: [%s] \nProgram Terminated",string);
+
+   return 0;
 }
