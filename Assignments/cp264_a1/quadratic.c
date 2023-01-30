@@ -35,7 +35,7 @@ int main3(int argc, char* argv[]){
                 r1 = -b / (2 * a);
                 printf("has two equal real roots: %f", r1);
 
-            } else if (discriminant > 0){
+            } else {
                 r1 = (-b + sqrtf(discriminant))/(2 * a);
                 r2 = (-b - sqrtf(discriminant))/(2 * a);
 

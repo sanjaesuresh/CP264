@@ -45,7 +45,7 @@ int main(int argc, char *argv[]) {
     }
                                     // Print the table of values
     printf("\n");
-    printf("Array traversal by \"ARRAY INDEXING\"\n");
+    prinsanjaesuresh/CP264/Labs/sure3530_lab02_t01/srctf("Array traversal by \"ARRAY INDEXING\"\n");
     printf("===================================\n");
     printf("\n");
     printf("Value       Square  \n");
