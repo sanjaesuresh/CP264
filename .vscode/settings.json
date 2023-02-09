@@ -34,6 +34,9 @@
     "**/.vscode/**"
   ],
   "files.associations": {
-    "mystring.h": "c"
-  }
+    "mystring.h": "c",
+    "algorithm": "c"
+  },
+  "C_Cpp.errorSquiggles": "enabled",
+  "git.ignoreLimitWarning": true
 }
