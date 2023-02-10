@@ -32,21 +32,19 @@ int main(int argc, char *args[])
   printf("a[]:");  
   display_array(a, n);
   printf("\n"); 
-  printf("is_sorted(a):%d\n", is_sorted(a, 0, n-1));  
+  printf("is_sorted(a): %d\n", is_sorted(a, 0, n-1));  
   
   printf("selection sort:");
   copy_array(a, b, n);
   select_sort(b, 0, n-1);
   display_array(b, n);
-  printf("\nis_sorted(b):%d\n", is_sorted(b, 0, n-1));  
+  printf("\nis_sorted(b): %d\n", is_sorted(b, 0, n-1));  
 
   printf("quick sort:");
   copy_array(a, b, n);
-  printf("COPIED");
   quick_sort(b, 0, n-1); 
-  printf("QUICK SORT");
   display_array(b, n);
-  printf("\nis_sorted(b):%d\n", is_sorted(b, 0, n-1));  
+  printf("\nis_sorted(b): %d\n", is_sorted(b, 0, n-1));  
   
   } else {   // for runtime comparison  
 

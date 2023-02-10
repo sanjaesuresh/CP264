@@ -12,10 +12,10 @@ Version  2023-02-06
 
 #include "mysort.h"
 
-void swap(float *a, float *b){
-    float temp = *b;
-    *b = *a;
-    *a = temp;
+void swap(float *a, int n1, int n2){
+    float temp = a[n1];
+    a[n1] = a[n2];
+    a[n2]  = temp;
 }
 
 void select_sort(float *a, int left, int right){
@@ -31,55 +31,42 @@ void select_sort(float *a, int left, int right){
             }
         }
         if (i != k){
-            swap(a+k, a+i);
+            swap(a, k, i);
         }
     }
 }
 
 void quick_sort(float *a, int left, int right){
-    int i, j, pivot;
-    float key, temp;
-    int loop = 0;
+    int i, j;
+    int pivot, temp;
 
     if (left < right){
-        pivot = (left + right) / 2; //pivot
-        key = *(a+pivot);
+        pivot = left;
+        i = left;
+        j = right;
 
-        i = left - 1;
-        j = right + 1;
-        
-        while (loop){
-            do{ //shift right
-                i++;
-            } while(*(a+j) < key);
-
-            do{ //shift left
-                j--;
-            } while (*(a+j) > key);
-
-            if (i >= j){
-                loop = false;
-            }else{
-                swap(a+i, a+j);
+        while (i < j){
+            while (a[i] <= a[pivot] && i < right) i++;
+            while (a[j] > a[pivot]) j--;
+            if (i < j){
+                swap(a, i, j);
             }
         }
 
+        swap(a, pivot, j);
         quick_sort (a, left, j-1);
         quick_sort(a, j+1, right);
     }
 }
 
-enum BOOLEAN is_sorted(int *a, int left, int right)
-{
+enum BOOLEAN is_sorted(float *a, int left, int right){
     // your implementation
     enum BOOLEAN result = true;
-    int left_ind = left;
     
-    while(result && left<right){
-        if(*(a+left_ind) > *(a+left_ind+1)){
+    for (int i = 0; i < sizeof(a); i++){
+        if (a[i] >= a[i+1])
             result = false;
-        }
-        left_ind++;
+            break;
     }
     
     return result;
