@@ -1,9 +1,19 @@
 /*
- * your program signature
- */ 
+-------------------------------------
+File:    mysort.c
+Project: sure3530_a04
+-------------------------------------
+Author:  Sanjae Suresh Kumar
+ID:      210523530
+Email:   sure3530@mylaurier.ca
+Version  2023-02-06
+-------------------------------------
+ */
  
 #ifndef MYRECORD_H
 #define MYRECORD_H 
+
+#define MAX_LINE_LEN 1000
 
 typedef struct {
   char name[40];
