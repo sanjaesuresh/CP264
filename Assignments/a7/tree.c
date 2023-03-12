@@ -67,7 +67,7 @@ void display_bforder(TNODE *root) {
     QUEUE output = {};
     TNODE *temp = NULL;
 
-    if (root == NULL) return 0;
+    if (root == NULL) return;
 
     enqueue(&output, root);
 
@@ -75,20 +75,56 @@ void display_bforder(TNODE *root) {
         temp = dequeue(&output);
         if (temp){
             printf("%c", temp->data);
-            enqueue(&output, temp -> left)
+            enqueue(&output, temp -> left);
             enqueue(&output, temp -> right);
         }
     }
-
 }
 
 /* use auxiliary queue data structure for the algorithm  */
 TNODE *iterative_bfs(TNODE *root, int val) {
-// your implementation
+    QUEUE q;
+    TNODE *output = NULL, *temp = NULL;
+
+    if (root != NULL){
+        enqueue(&q, root);
+
+        while(q.front){
+            temp = dequeue(&q);
+            if (temp -> data == val){
+                output = temp;
+                break;
+            }
+            if (temp -> left) enqueue(&q, temp -> left);
+            else if (temp -> right) enqueue(&q, temp -> right);
+        }
+    }
+    clean_queue(&q);
+    return output;
 }
 
 TNODE *iterative_dfs(TNODE *root, int val) {
-// your implementation
+    STACK s;
+    TNODE *output = NULL, *temp;
+
+    if (root != NULL){
+        push(&s, root);
+
+        while(s.top){
+            temp = (TNODE *) (s.top) -> data;
+            pop(&s);
+
+            if (temp -> data == val){
+                output = temp;
+                break;
+            }
+
+            if (temp -> left) push(&s, temp -> right);
+            else if (temp -> right) push(&s, temp -> left);
+        }
+    }
+    clean_stack(&s);
+    return output;
 }
 
 void clean_tree(TNODE **rootp) {

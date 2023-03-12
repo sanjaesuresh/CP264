@@ -20,7 +20,7 @@ typedef struct tnode {
 TNODE *new_node(char *name, float score);
 
 /* clean the tree */
-void clean_tree(TNODE **rootp) 
+void clean_tree(TNODE **rootp);
 
 /* search bst by data.name */
 TNODE *search(TNODE *root, char *name); 
