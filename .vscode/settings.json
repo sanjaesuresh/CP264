@@ -35,7 +35,8 @@
   ],
   "files.associations": {
     "mystring.h": "c",
-    "algorithm": "c"
+    "algorithm": "c",
+    "avl_linked_simple.h": "c"
   },
   "C_Cpp.errorSquiggles": "enabled",
   "git.ignoreLimitWarning": true
