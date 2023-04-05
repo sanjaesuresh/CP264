@@ -23,8 +23,6 @@ int main(int argc, char* args[]) {
   char infilename[40] = "expression.txt";
   if (argc >1) strcpy(infilename, args[1]);
   if (argc >2) sscanf(args[2], "%d", &htsize); // htsize = atoi(args[2]);
-  
-  
 
   HASHTABLE *ht = new_hashtable(htsize);
 
@@ -40,8 +38,8 @@ int main(int argc, char* args[]) {
   printf("Symbolic expressions:\n"); 
   while (fgets(line, sizeof(line), fp) != NULL) {
     st = strtok(line, delimiters);
-	printf("%s\n", st);
-    while (st != NULL) {
+    printf("%s\n", st);
+      while (st != NULL) {
       resolve_symbol(st, ht);
       st = strtok(NULL, delimiters);
     }

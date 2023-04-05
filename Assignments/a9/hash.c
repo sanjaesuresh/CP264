@@ -47,7 +47,7 @@ HASHNODE *search(HASHTABLE *ht, char *key) {
     HASHNODE *node = ht -> hna[hash(key)];
 
     while(node){
-        if (node -> name == key) break;
+        if (strcmp(node->name, key) == 0) break;
         else node = node -> next;
     }
 
@@ -55,12 +55,66 @@ HASHNODE *search(HASHTABLE *ht, char *key) {
 }
 
 int insert(HASHTABLE *ht, HASHNODE *np) {
-    int hash = hash(np -> name);
-    HASHNODE *node = ht -> hna[hash], *prev = NULL;
+    int index = hash(np->name);
+    HASHNODE *prev = NULL;
+    HASHNODE *curr = ht->hna[index];
+    if(curr != NULL) {
+        while(curr && strcmp(curr->name, np->name) != 0) {
+            prev = curr;
+            curr = curr->next;
+
+        } 
+
+        if(strcmp(curr->name, np->name) != 0) {
+            if(prev) 
+                prev->next =np;
+
+            np->next = curr;
+            ht->count += 1;
+            return 1;
+
+        } else 
+            curr->value = np->value;
+
+    } else {
+        ht->hna[index] = np;
+        ht->count += 1;
+        return 1;
+    }
+
+    return 0;
 }
 
 int delete(HASHTABLE *ht, char *key) {
-// your implementation
+    int index = hash(key);
+    HASHNODE *prev = NULL;
+    HASHNODE *curr = ht->hna[index];
+    if(curr) {
+        int i = 0;
+        while(curr && strcmp(curr->name, key) != 0) {
+            prev = curr;
+            curr = curr->next;
+            i++;
+
+        }
+
+        // Checks to see if the loop above didn't just stop because its at the end of the list.
+        if(strcmp(curr->name, key) == 0) {
+            if(prev)
+                prev->next = curr->next;
+            
+            ht->hna[index + i] = NULL;
+            free(ht->hna[index + i]);
+            ht->count -= 1;
+            return 1;
+
+        }
+
+    // Value doesn't exist.
+    } else
+        return 0;
+
+    return 0;
 }
 
 
