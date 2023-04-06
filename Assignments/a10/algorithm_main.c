@@ -9,10 +9,10 @@ Version: 2022-02-22
 */
 
 #include <stdio.h>
-#include "edgelist.h"
-#include "graph.h"
-#include "algorithm.h"
-#include "heap.h"
+#include "edgelist.c"
+#include "graph.c"
+#include "algorithm.c"
+#include "heap.c"
 
 int main(){
   //create a weighted graph

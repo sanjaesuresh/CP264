@@ -9,7 +9,7 @@ Version: 2023-03-23
 */
 
 #include <stdio.h>
-#include "graph.h"
+#include "graph.c"
 
 int main(){
   GRAPH *graph = new_graph(5);

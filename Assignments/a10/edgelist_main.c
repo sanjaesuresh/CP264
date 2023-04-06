@@ -17,7 +17,7 @@ int main(){
   add_edge_end(elg, 2, 1, 4);
   add_edge_end(elg, 1, 3, 9);
   add_edge_end(elg, 1, 4, 11);  
-  printf("display_edgelist():\n", weight_edgelist(elg));  
+  printf("display_edgelist():\n");  
   display_edgelist(elg);
   printf("\nweight:%d\n", weight_edgelist(elg));
   clean_edgelist(&elg);
